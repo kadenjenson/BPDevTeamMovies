@@ -1,0 +1,32 @@
+.home-panel {
+    overflow: auto;
+}
+
+.movie-container {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    height: 100%;
+    width: 100%;
+}
+
+.movie-poster {
+    position: relative;
+    height: auto;
+    width: 29%;
+    margin: 15px 15px 0 17px;
+}
+
+.movie-poster img {
+    width: 100%;
+    height: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all 0.6s;
+}
+
+.movie-poster img:hover {
+    width: 102%;
+}

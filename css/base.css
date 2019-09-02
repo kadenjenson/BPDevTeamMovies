@@ -1,0 +1,121 @@
+html, body{ 
+	margin:0px; 
+	padding:0px; 
+	width: 100%; 
+	height: 100%; 
+	background:#F1F2F2;
+	overflow: hidden; 
+}  
+
+*{ 
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0); 
+	outline:none; 
+	-ms-overflow-style:-ms-autohiding-scrollbar; 
+} 
+
+a, 
+button{ 
+	outline: 0; 
+	text-decoration: none; 
+} 
+.app-container{ 
+	width: 100%; 
+	height: auto;     
+	top: 0px;  
+	bottom: 0px; 
+	border: none; 
+	position: absolute; 
+	background: #1a202b; 
+	z-index:10; 
+}  
+.app-nav-container{
+	position: relative; 
+    height: 100%;
+}
+.app-nav-container.ignoreHover, 
+.app-nav-container.ignoreHover *{
+	pointer-events: none !important; 
+}
+.app-nav-container .main-navigation{
+	position: relative;
+	height: 100%; 
+	z-index: 5;
+	overflow-y: auto; 
+	overflow-x: hidden; 
+	-webkit-transition: width .3s .1s ease-in-out; 
+	transition: width .3s .1s ease-in-out;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden; 
+	will-change: width;
+} 
+.app-nav-container:not(.ignoreHover):hover .main-navigation{  
+	width: 330px;
+	-webkit-transition: width .3s .2s ease-in-out; 
+	transition: width .3s .2s ease-in-out;
+}
+.app-nav-container > .main-navigation{
+	z-index: 5;
+	width: 68px;
+    overflow: hidden;
+}
+.app-nav-container .navigation-group{
+	margin: 0;
+}
+.app-nav-container .navigation-group h2{
+	position: relative;
+	font-weight: 500;
+	color: #a5afb9; 
+	text-transform: uppercase; 
+	padding: 20px 30px;
+	opacity: 0;
+	margin: 0;
+	-webkit-transition: opacity .3s ease-in;
+	-moz-transition: opacity .3s ease-in;
+	transition: opacity .3s ease-in;
+}
+.app-nav-container:hover .navigation-group h2{
+	opacity: 1;
+}
+.app-nav-container .navigation-group h2:after{
+	position: absolute; 
+	bottom: 0;
+	left: 0; 
+	right: 0; 
+	height: 2px;
+	background: #3F4656;
+	content: '';
+	margin: 0 20px;
+}
+.app-nav-container .navigation:not(.sub) ul{
+	top: 80px; 
+}
+.app-container .active-panel-container{ 
+	position: absolute; 
+	background: #f4f2f5; 
+	z-index: 1; 
+	width: auto; 
+	min-width: 900px; 
+	top: 0px; 
+	bottom: 0px; 
+	left: 68px; 
+	right: 0px;   
+}
+.active-panel-container:after{ 
+	content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,30,0.1);
+    opacity: 0;
+	z-index: 10; 
+    will-change: opacity;
+    pointer-events: none;
+    -webkit-transition: opacity 0.3s cubic-bezier(0,0,0.3,1);
+    transition: opacity 0.3s cubic-bezier(0,0,0.3,1);
+}
+.navigation.sub.active ~ .active-panel-container:after{ 
+	opacity: 1;
+}

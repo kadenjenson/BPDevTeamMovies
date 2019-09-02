@@ -1,0 +1,12 @@
+@import url('fonts/fonts.css');
+
+* {
+	font-family: 'lato';
+	font-size: 16px;
+	-webkit-font-smoothing: antialiased;
+}
+
+::selection {
+	color: #FFF;
+	background: #3577C0;
+}

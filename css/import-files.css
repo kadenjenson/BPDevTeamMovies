@@ -1,0 +1,480 @@
+@import url('text.css'); 
+
+/* controls */ 
+@import url('controls/navigation.css'); 
+@import url('controls/tab.css');
+
+/* modules */ 
+@import url('modules/main-panel.css');
+@import url('modules/home-panel.css');
+
+input,
+select,
+textarea {
+	background-color: #fff;
+	line-height: 1.4;
+    padding: .5em;
+	border: 1px solid #E2E4E9;
+	border-radius: 4px;
+	max-width: 100%;
+}
+
+textarea {
+	min-width: 8em;
+	min-height: 3em;
+}
+
+form input[type="submit"] {
+    display: block;
+    margin: 2em auto;
+}
+
+input:hover, 
+select:hover, 
+textarea:hover {
+    box-shadow: 0 0 0 1px #E2E4E9;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #6B98F2;
+    box-shadow: 0 0 0 1px #6B98F2;
+}
+
+input:not(:placeholder-shown):invalid,
+select:invalid,
+textarea:not(:placeholder-shown):invalid,
+.error_val,
+input.error_val,
+select.error_val,
+textarea.error_val {
+	background-color: #fff;
+	border-color: #F56166;
+	box-shadow: 0 0 0 1px #F56166;
+}
+
+input[type="date"],
+input[type="time"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+input[type="file"] {
+    cursor: pointer;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    background-color: transparent;
+    border: 1px solid #E2E4E9;
+    border-radius: 4px;
+    padding: .25em .5em;
+}
+
+input[type="file"]:hover::-webkit-file-upload-button {
+    box-shadow: 0 0 0 1px #E2E4E9;
+}
+
+input[type="file"]:focus::-webkit-file-upload-button {
+    border-color: #6B98F2;
+    box-shadow: 0 0 0 1px #6B98F2;
+}
+
+form button[type="submit"] {
+    display: block;
+    margin: .5em auto;
+}
+
+.floating-label {
+    position: relative;
+    padding-top: 1em;
+}
+
+.floating-label input,
+.floating-label textarea,
+.new_patient_form input[type="text"],
+.new_patient_form input[type="tel"],
+.new_patient_form input[type="email"],
+.new_patient_form input[type="date"],
+.new_patient_form select,
+.new_patient_form textarea {
+	display: block;
+	width: 100%;
+}
+
+.floating-label input + label,
+.floating-label textarea + label {
+    position: absolute;
+    left: .5em;
+    top: .25em;
+    font-size: .9em;
+    line-height: 1;
+    background-color: #fff;
+	color: #2B303A;
+    padding: 4px;
+	opacity: 1;
+    transform: translateY(0) scale(.9);
+	transition: opacity .2s, transform .2s;
+	pointer-events: none;
+}
+
+.floating-label input:placeholder-shown + label,
+.floating-label textarea:placeholder-shown + label {
+	opacity: .8;
+	transform: translateY(1.5em) scale(1);
+}
+
+.floating-label input:focus + label,
+.floating-label textarea:focus + label {
+	color: #6B98F2;
+	opacity: 1;
+    transform: translateY(0) scale(.9);
+}
+
+.floating-label input:focus:invalid + label,
+.floating-label textarea:focus:invalid + label {
+	color: #3F4656;
+}
+
+::-webkit-input-placeholder {color: #B3B9C2;}
+::-moz-placeholder {color: #B3B9C2;}
+:-ms-input-placeholder {color: #B3B9C2;}
+:-moz-placeholder {color: #B3B9C2;}
+::placeholder {color: #B3B9C2;}
+.floating-label ::-webkit-input-placeholder {opacity: 0;}
+.floating-label ::-moz-placeholder {opacity: 0;}
+.floating-label :-moz-placeholder {opacity: 0;}
+.floating-label ::placeholder {opacity: 0;}
+.floating-label :focus::-webkit-input-placeholder {opacity: 1;}
+.floating-label :focus::-moz-placeholder {opacity: 1;}
+.floating-label :focus:-ms-input-placeholder {opacity: 1;}
+.floating-label :focus:-moz-placeholder {opacity: 1;}
+.floating-label :focus::placeholder {opacity: 1;}
+
+
+@supports (-webkit-appearance: none) or (-moz-appearance: none) {
+	input[type="checkbox"],
+	input[type="radio"] {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		appearance: none;
+		box-sizing: border-box;
+		display: inline-block;
+		width: 1em;
+		height: 1em;
+		border: 2px solid #C4C4C4;
+		background-color: #fff;
+		background-color: rgba(255,255,255,0);
+		background-position: center center;
+		background-repeat: no-repeat;
+		box-shadow: none;
+		margin-right: .5em;
+		cursor: pointer;
+		transition: all .2s;
+	}
+
+	input[type="checkbox"] {
+		border-radius: 2px;
+		background-size: contain;
+	}
+
+	input[type="radio"] {
+		border-radius: 100%;
+		background-size: 1em;
+	}
+
+	input[type="checkbox"]:checked {
+		background-color: #6B98F2;
+		background-image: url(../../../../images/check.svg);
+		border-color: #6B98F2;
+	} 
+	
+	input[type="radio"]:checked {
+		background-color: transparent;
+		background-image: url(../../../../images/radio.svg);
+		border-color: #6B98F2;
+	} 
+
+	.checkbox-label,
+	.radio-label,
+	.switch-label {
+		position: relative;
+		padding: .5em;
+		margin: .5em 0;
+		display: flex;
+		align-items: center;
+	}
+
+	.checkbox-label input[type="checkbox"],
+	.radio-label input[type="radio"],
+	.switch-label input[type="checkbox"] {
+		position: relative;
+		z-index: 2;
+		display: inline-block;
+		flex: 0 0 1em;
+	}
+	
+	.switch-label input[type="checkbox"] {
+		flex: 0 0 2em;
+	}
+	
+	.checkbox-label input + label[for],
+	.radio-label input + label[for],
+	.switch-label input + label[for] {
+		cursor: pointer
+	}
+
+	.checkbox-label input[type="checkbox"] + label::after,
+	.radio-label input[type="radio"] + label::after,
+	.switch-label input[type="checkbox"] + label::after {
+		content: "";
+		box-sizing: border-box;
+		width: 2em;
+		height: 2em;
+		position: absolute;
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 1;
+		border-radius: 50%;
+		background-color: #fff;
+		opacity: 0;
+		transition: all .2s;
+	}
+
+	.checkbox-label input[type="checkbox"]:hover + label::after,
+	.checkbox-label input[type="checkbox"] + label:hover::after,
+	.radio-label input[type="radio"]:hover + label::after,
+	.radio-label input[type="radio"] + label:hover::after,
+	.switch-label input[type="checkbox"]:hover + label::after,
+	.switch-label input[type="checkbox"] + label:hover::after {
+		opacity: .5;
+	}
+
+	.checkbox-label input[type="checkbox"]:hover:checked + label::after,
+	.checkbox-label input[type="checkbox"]:checked + label:hover::after,
+	.radio-label input[type="radio"]:hover:checked + label::after,
+	.radio-label input[type="radio"]:checked + label:hover::after,
+	.switch-label input[type="checkbox"]:hover:checked + label::after,
+	.switch-label input[type="checkbox"]:checked + label:hover::after {
+		background-color: rgba(81, 164, 234, 0.2);
+		opacity: 1;
+	}
+
+	.checkbox-label input[type="checkbox"]:focus + label::after,
+	.radio-label input[type="radio"]:focus + label::after,
+	.switch-label input[type="checkbox"]:focus + label::after {
+		background-color: rgba(81, 164, 234, 0.3);
+		opacity: 1;
+	}
+
+	.switch-label input[type="checkbox"] {
+		width: 2em;
+		height: .8em;
+		border: none;
+		background-color: #D4D9E0;
+		border-radius: .5em;
+	}
+
+	.switch-label input[type="checkbox"]:checked {
+		background-color: #B8DBF8;
+		background-image: none;
+	}
+
+	.switch-label input[type="checkbox"] + label::before {
+		content: "";
+		box-sizing: border-box;
+		display: inline-block;
+		width: 1.1em;
+		height: 1.1em;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		left: .45em;
+		z-index: 3;
+		background-color: #fff;
+		background-position: center center;
+		background-repeat: no-repeat;
+		border-radius: 50%;
+		box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.24), 0px 0px 2px rgba(0, 0, 0, 0.12);
+		cursor: pointer;
+		transition: all .2s;
+	} 
+
+	.switch-label input[type="checkbox"]:checked + label::before {
+		left: 1.45em;
+		background-color: #6B98F2;
+		border-color: #6B98F2;
+	} 
+
+	.switch-label input[type="checkbox"]:checked + label::after {
+		left: 1em;
+	}
+	
+	form[id^="bs"] > div {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.switch-label {
+		align-self: center;
+	}
+}
+
+form .row {
+    margin-left: -.5em;
+    margin-right: -.5em;
+}
+
+form .row > div[class*="col"] {
+    padding: 0 .5em;
+}
+
+/* Appointment request form update */
+
+.preferred-contact .preferred-input {
+    display: flex;
+    align-items: center;
+}
+
+.preferred-contact .floating-label {
+    flex: 0 1 calc(50% - 10px);
+}
+
+@media (max-width: 500px) {
+	.preferred-contact .floating-label {
+		flex: 1 1 auto;
+	}
+}
+
+.preferred-contact .toggle-contact {
+    padding: 5px;
+    margin: 1.25em 0 0 1.25em;
+    background-color: transparent;
+    color: inherit;
+    font-size: .75em;
+    letter-spacing: .095em;
+    text-transform: uppercase;
+	opacity: .8;
+	transition: opacity .2s;
+}
+
+.preferred-contact .toggle-contact:hover {
+	opacity: 1;
+}
+
+.optional-message {
+    text-align: center;
+	margin: 1em 0;
+}
+
+.optional-message input[type="checkbox"] {
+	background-color: #6B98F2;
+    background-image: url(../../../../images/plus.svg);
+	border-color: #6B98F2;
+	background-size: 12px auto;
+	cursor: pointer;
+}
+
+.optional-message input[type="checkbox"] + label {
+	cursor: pointer;
+}
+
+.optional-message input[type="checkbox"]:checked {
+	background-color: #fff;
+    background-image: url(../../../../images/minus.svg);
+	border-color: #C4C4C4;
+}
+
+.optional-message .floating-label {
+    height: 1em;
+    opacity: 0;
+    transition: opacity .2s;
+	overflow: hidden;
+}
+
+.optional-message .floating-label textarea {
+	max-height: 4em;
+}
+
+.optional-message input:checked ~ .floating-label {
+    height: 5em;
+    opacity: 1;
+	overflow: visible;
+}
+
+.appointment-form > div > .current-patient {
+    display: none;
+}
+
+/* Patient forms */
+.radio-row {
+    display: flex;
+    flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.radio-row .radio-label {
+    margin-right: 1em;
+}
+
+.select-row {
+	display: block;
+    margin-top: 1em;
+}
+
+.select-row select {
+    display: block;
+    width: 100%;
+}
+
+.form-group > .radio-row,
+.form-group > .row {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+	margin: 0;
+}
+
+form [class*="lefty"] {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+form [class*="lefty"] .radio-label {
+    margin: 0;
+}
+
+/*input[type="radio"].val:indeterminate {
+    border-color: #F56166;
+}*/
+
+/* Form JS features */
+
+.honey {
+	display: none !important;
+}
+
+.response_success,
+.response_failure,
+.success,
+.failure {
+	display: none;
+	text-align: center;
+	padding: .5em;
+	margin: 1em auto;
+	background-color: #333;
+}
+
+.form_success .success {
+	display: block;
+	color: #333;
+	background-color: #5BDFC4;
+}
+
+.form_failure .failure {
+	display: block;
+	color: #fff;
+	background-color: #F56166;
+}

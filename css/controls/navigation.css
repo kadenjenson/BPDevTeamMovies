@@ -1,0 +1,140 @@
+.navigation{ 
+	position: absolute; 
+	background: #1D212B; 
+	width: 330px; 
+	top: 0px; 
+	bottom: 0px; 
+	overflow-y: auto; 
+	overflow-x: hidden; 
+	-webkit-transition: width .3s .1s ease-in-out; 
+	transition: width .3s .1s ease-in-out;
+} 
+.navigation:not(.sub):hover{  
+	-webkit-transition: width .3s .2s ease-in-out; 
+	transition: width .3s .2s ease-in-out;
+}
+.navigation.sub{ 
+	z-index: 10; 
+	opacity: 0; 
+	background:#2D3240; 
+	box-shadow: 0px 0px 14px 2px rgba(0,0,0,.3); 
+	-webkit-transform: translateX(-10px);
+	transform: translateX(-10px);
+	-webkit-transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+	transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+	pointer-events: none; 
+}
+.app-nav-container:not(.ignoreHover):hover .navigation.sub.active{ 
+	opacity: 1; 
+	pointer-events: all;
+	-webkit-transform: translateX(68px);
+	transform: translateX(68px);
+	-webkit-transition: opacity .2s .1s ease-in-out, transform .2s .1s ease-in-out;
+	transition: opacity .2s .1s ease-in-out, transform .2s .1s ease-in-out;
+}
+.navigation.sub.active + .navigation{
+	width: 330px;  
+}
+.navigation.sub.active + .navigation .option{
+	opacity: 0.2; 
+}
+.navigation ul{
+	position:relative; 
+    min-width: 330px; 
+	list-style:none;
+	padding: 0;  
+	margin: 0;  
+}  
+.navigation li.option{ 
+	position: relative; 
+	width: auto;
+	height: 60px;
+	line-height: 60px;
+	text-align: left;
+	font-size: 18px;
+	font-weight: 500; 
+	border: none; 
+	cursor: pointer;
+	padding: 0px;
+	overflow: hidden;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: all .2s ease-in;
+	transition: all .2s ease-in;     
+} 
+.navigation li.option a{
+	display: block; 
+    height: 60px;
+}
+.navigation li.option, 
+.navigation li.option a{ 
+	color: #a5afb9;     
+}
+.navigation li.option.sub:before{ 
+	content: ''; 
+	position: absolute; 
+	width: 10px; 
+	height: 17px; 
+	top: 0px; 
+	bottom: 0px; 
+	right: 22px; 
+	margin: auto 0px; 
+	background: url(../../images/arrow-right-white.svg) no-repeat center;     
+}
+.navigation li.option:hover, 
+.navigation li.option:hover a{ 
+	color: #FFF;
+	box-shadow: none;   
+} 
+.navigation li.option:active{ 
+	background: rgba(0, 0, 0, .1);   
+} 
+.navigation li.option .icon{
+	width: 68px;
+	height: 60px;
+	background: url(../../images/group-icon.svg) no-repeat center; 
+	background-size: 26%;
+	float: left;
+	opacity: 0.6; 
+	-webkit-transition: opacity .2s ease-in;
+	transition: opacity .2s ease-in;
+}
+.navigation li.option .label{
+	width: auto;
+	height: 60px;
+	line-height: 60px;
+	font-size: inherit;
+	color: inherit;
+	margin-left: 15px;
+	float: left;
+	opacity: 1;
+	-webkit-transition: opacity .3s ease-in;
+	-moz-transition: opacity .3s ease-in;
+	transition: opacity .3s ease-in;
+}
+.navigation:not(.sub) .option .label{
+	opacity: 0;  
+}
+.navigation:not(.sub):hover .option .label{
+	opacity: 1;  
+	-webkit-transition: opacity .3s .2s ease-in;
+	-moz-transition: opacity .3s .2s ease-in;
+	transition: opacity .3s .2s ease-in;
+}
+.navigation li.option.selected{    
+	color: #FFF; 
+	background: none;	
+} 
+.navigation li.option:hover .icon, 
+.navigation li.option a.selected .icon{
+	opacity: 1; 
+}
+.navigation li.option a.selected:after {
+	content: ''; 
+	position: absolute; 
+	width: 5px; 
+	top: 0px; 
+	bottom: 0px; 
+	left: 0px; 
+	background-color: #2C90EE 
+}
