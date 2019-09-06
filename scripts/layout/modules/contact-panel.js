@@ -45,6 +45,7 @@ var MovieContactForm = Form.extend(
 
     addFormBody: function()
     {
+        var self = this;
         return [
             this.addFloatingInput({
 				name: 'Name',
@@ -69,20 +70,19 @@ var MovieContactForm = Form.extend(
 				placeholder: 'I would like to schedule an appointment.'
 			}),
 			Button({
-                click: base.bind(this, this.toggleSuggestions),
+                click: function()
+                {
+                    var open = self.state.get('open');
+                    self.state.set('open', !open);
+                },
                 className: 'movie bttn',
 				text: 'Add Movies'
             }),
-            this.cache('suggestionContainer', new SuggestionsContainer()),
+            this.cache('suggestionContainer', new SuggestionsContainer({
+                state: this.state
+            })),
 			this.addSubmit()
         ]
-    },
-
-    toggleSuggestions: function()
-    {
-        console.log(this.suggestionContainer)
-        // var test = new SuggestionsContainer();
-        // test.setup(this.suggestionContainer);
     }
 });
 
@@ -90,10 +90,29 @@ var SuggestionsContainer = base.Component.extend(
 {
     render: function()
     {
-        console.log(this.state)
+        var self = this;
         return {
             className: 'suggestion-container',
-            // onState: ''
+            onState: ['open', function(ele, val)
+            {
+                if (val)
+                {
+                    base.addClass(ele, 'open');
+
+                    var suggestions = [];
+                    for (var i = 0, len = self.state.get('movies'); i < len; i++)
+                    {
+                        suggestions.push({
+                            className: 'suggestion-box ' + i
+                        })
+                    }
+
+                    return suggestions;
+                }
+
+                base.removeClass(ele, 'open');
+                return {};
+            }]
         }
     }
 });
