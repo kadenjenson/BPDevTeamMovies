@@ -23,16 +23,9 @@ var ContactPanel = MainPanel.extend(
                     row: 
                     {
                         className: 'row',
-                        children: [
-                            Col({
-                                className: '',
-                                children: [
-                                    new MovieContactForm({
-                                        className: 'movie-contact-form'
-                                    })
-                                ]
-                            })
-                        ]
+                        contactForm: new MovieContactForm({
+                            className: 'movie-contact-form'
+                        })
                     }
                 }
             ]
@@ -97,9 +90,10 @@ var SuggestionsContainer = base.Component.extend(
 {
     render: function()
     {
+        console.log(this.state)
         return {
             className: 'suggestion-container',
-            text: "hi there"
+            // onState: ''
         }
     }
 });
