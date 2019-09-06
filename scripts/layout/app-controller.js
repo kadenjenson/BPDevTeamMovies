@@ -46,9 +46,9 @@ var AppController = MainController.extend(
 	{ 
 		return [
 			addRoute('/', HomePanel, 'Home'),
+			addRoute('/contact', ContactPanel, 'Contact Us'),
 			addRoute('/synopsis/:page?*', SynopsisPanel, 'Synopsis'),
 			addRoute('/cast', CastPanel, 'Cast'),
-			addRoute('/contact', ContactPanel, 'Contact Us')
 		]; 
 	}, 
 

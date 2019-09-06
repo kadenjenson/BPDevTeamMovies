@@ -27,7 +27,9 @@ var ContactPanel = MainPanel.extend(
                             Col({
                                 className: '',
                                 children: [
-                                    new MovieContactForm()
+                                    new MovieContactForm({
+                                        className: 'movie-contact-form'
+                                    })
                                 ]
                             })
                         ]
@@ -78,9 +80,7 @@ var MovieContactForm = Form.extend(
                 className: 'movie bttn',
 				text: 'Add Movies'
             }),
-            this.cache('suggestionContainer', {
-                className: 'suggestion-container'
-            }),
+            this.cache('suggestionContainer', new SuggestionsContainer()),
 			this.addSubmit()
         ]
     },
@@ -98,8 +98,7 @@ var SuggestionsContainer = base.Component.extend(
     render: function()
     {
         return {
-            className: 'test',
-            tag: 'h1',
+            className: 'suggestion-container',
             text: "hi there"
         }
     }
