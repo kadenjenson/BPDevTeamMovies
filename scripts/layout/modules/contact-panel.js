@@ -2,11 +2,6 @@
 
 var ContactPanel = MainPanel.extend(
 {
-    beforeSetup: function()
-    {
-        this.data = new ContactModel();
-    },
-
     render: function()
     {
         return MainSection(
@@ -35,6 +30,11 @@ var ContactPanel = MainPanel.extend(
 
 var MovieContactForm = Form.extend(
 {
+    beforeSetup: function()
+    {
+        this.data = new ContactModel();
+    },
+
     setupStates: function()
     {
         return {
@@ -79,12 +79,29 @@ var MovieContactForm = Form.extend(
 				text: 'Add Movies'
             }),
             this.cache('suggestionContainer', new SuggestionsContainer({
-                state: this.state
+                state: this.state,
+                data: this.data
             })),
+            Input({
+                keyup: function (e) {
+                    console.log(e);
+                },
+                className: 'suggestion-',
+                placeholder: 'placeholders[i]',
+                name: 'Suggestion '
+            }),
 			this.addSubmit()
         ]
     }
 });
+
+var placeholders = [
+    'Something inspiring?',
+    'Dramatic much?',
+    'Will it make you laugh out loud?',
+    "I'm not crying you are!",
+    'Meant for children but I too, am a child.'
+];
 
 var SuggestionsContainer = base.Component.extend(
 {
@@ -97,16 +114,32 @@ var SuggestionsContainer = base.Component.extend(
             {
                 if (val)
                 {
-                    base.addClass(ele, 'open');
-
-                    var suggestions = [];
+                    var suggestions = [
+                        H1({
+                            className: 'suggestion-label',
+                            text: 'What are some of your favorite movies?'
+                        })
+                    ];
                     for (var i = 0, len = self.state.get('movies'); i < len; i++)
                     {
                         suggestions.push({
-                            className: 'suggestion-box ' + i
+                            className: 'suggestion-box',
+                            children: [
+                                Input({
+                                    keyup: function(e)
+                                    {
+                                        console.log(e);
+                                    },
+                                    className: 'suggestion-' + (i + 1),
+                                    placeholder: placeholders[i],
+                                    name: 'Suggestion ' + (i + 1),
+                                    required: (i === 0)
+                                })
+                            ]
                         })
                     }
 
+                    base.addClass(ele, 'open');
                     return suggestions;
                 }
 

@@ -112,3 +112,28 @@ var Col = Tag.extend(function(props)
 		children: props.children || []
 	}
 });
+
+var Label = Tag.extend(function(props)
+{
+	return {
+		className: 'label ' + props.className || 'label',
+		name: props.name || null,
+		text: props.text || ''
+	};
+});
+
+var Input = Tag.extend(function(props)
+{
+	return {
+		tag: 'input',
+		type: props.type || 'text',
+		id: props.id || null,
+		for: props.for || null,
+		placeholder: props.placeholder || '',
+		name: props.name || '',
+		value: props.value || '',
+		required: props.required || false,
+		pattern: props.pattern || '',
+		label: props.label || ''
+	};
+});

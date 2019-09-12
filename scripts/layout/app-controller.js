@@ -45,7 +45,7 @@ var AppController = MainController.extend(
 	getRoutes: function()
 	{ 
 		return [
-			addRoute('/', HomePanel, 'Home'),
+			addRoute('./', HomePanel, 'Home'),
 			addRoute('/contact', ContactPanel, 'Contact Us'),
 			addRoute('/synopsis/:page?*', SynopsisPanel, 'Synopsis'),
 			addRoute('/cast', CastPanel, 'Cast')

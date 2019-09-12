@@ -7,6 +7,7 @@
 /* modules */ 
 @import url('modules/main-panel.css');
 @import url('modules/home-panel.css');
+@import url('modules/contact-panel.css');
 
 input,
 select,

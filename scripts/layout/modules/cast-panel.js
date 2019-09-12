@@ -14,7 +14,7 @@ var CastPanel = MainPanel.extend(
 				}),
 				{ 
 					tag: 'section',
-					className: 'body',
+					className: 'content-container',
 					row: 
 					{
 						className: 'row',
