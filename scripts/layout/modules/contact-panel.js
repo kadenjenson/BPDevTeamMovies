@@ -2,28 +2,14 @@
 
 var ContactPanel = MainPanel.extend(
 {
-    render: function()
+    panelClass: 'contact-panel',
+
+    panelTitle: 'Contact Us',
+
+    addBody: function()
     {
-        return MainSection(
-        {
-            className: 'contact-panel', 
-            children: 
-            [
-                MainTitle({
-                    text: 'Contact Us'
-                }),
-                { 
-                    tag: 'section',
-                    className: 'content-container',
-                    row: 
-                    {
-                        className: 'row',
-                        contactForm: new MovieContactForm({
-                            className: 'movie-contact-form'
-                        })
-                    }
-                }
-            ]
+        return new MovieContactForm({
+            className: 'movie-contact-form'
         });
     }
 });
@@ -82,14 +68,6 @@ var MovieContactForm = Form.extend(
                 state: this.state,
                 data: this.data
             })),
-            Input({
-                keyup: function (e) {
-                    console.log(e);
-                },
-                className: 'suggestion-',
-                placeholder: 'placeholders[i]',
-                name: 'Suggestion '
-            }),
 			this.addSubmit()
         ]
     }

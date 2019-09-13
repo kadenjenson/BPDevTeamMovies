@@ -17,6 +17,7 @@ var url = 'scripts/layout/',
 add(modelUrl + 'contact-model-class.js');
 
 /* controls */ 
+add(url + 'controls/modal.js');
 add(url + 'controls/navigation.js');
 add(url + 'controls/tab.js');
 add(url + 'controls/panel.js');

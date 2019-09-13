@@ -78,6 +78,11 @@ var MainTitle = function(props)
 			H1({
 				text: props.text, 
 				watch: props.watch
+			}),
+			Button({
+				text: props.bttnText || '',
+				className: props.bttnClass || 'bttn',
+				click: props.click || null
 			})
 		]
 	}); 

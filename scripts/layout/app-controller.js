@@ -46,9 +46,9 @@ var AppController = MainController.extend(
 	{ 
 		return [
 			addRoute('./', HomePanel, 'Home'),
-			addRoute('/contact', ContactPanel, 'Contact Us'),
-			addRoute('/synopsis/:page?*', SynopsisPanel, 'Synopsis'),
-			addRoute('/cast', CastPanel, 'Cast')
+			addRoute('/contact/', ContactPanel, 'Contact Us'),
+			addRoute('/synopsis/:page?*/', SynopsisPanel, 'Synopsis'),
+			addRoute('/cast/', CastPanel, 'Cast')
 		]; 
 	}, 
 
@@ -67,30 +67,30 @@ var AppController = MainController.extend(
 			},
 			{
 				label: 'CONTACT', 
-				href: 'contact'
+				href: '/contact'
 			},
 			{
 				label: 'SYNOPSIS', 
-				href: 'synopsis', 
+				href: '/synopsis', 
 				options: 
 				[
 					{
 						label: 'STORY', 
-						href: 'synopsis/story'
+						href: '/synopsis/story'
 					}, 
 					{
 						label: 'BOOK', 
-						href: 'synopsis/book'
+						href: '/synopsis/book'
 					}, 
 					{
 						label: 'CONCEPTS', 
-						href: 'synopsis/concepts'
+						href: '/synopsis/concepts'
 					}
 				]
 			}, 
 			{
 				label: 'CAST', 
-				href: 'cast'
+				href: '/cast'
 			}
 		];
 	}
